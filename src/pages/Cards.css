@@ -1,0 +1,25 @@
+* {
+    list-style: none;
+  }
+  
+  .active {
+    border: 8px solid rgb(29, 163, 29);
+    width: 110%;
+  }
+  
+  .inactive {
+    border: none;
+    border: 3px solid black;
+  }
+
+  .cards--wrapper {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+  }
+
+
+
+
+  

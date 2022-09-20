@@ -1,0 +1,75 @@
+.credit-card {
+    margin-top: 72px;
+    height: 260px;
+    border: 0;
+    border-radius: 7px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 430px;
+    padding: 25px;
+    border-radius: 14px;
+    color: white;
+    background-image: linear-gradient(25deg, #282f38, #295a6d);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .cardForm {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .credit-card__number {
+    display: flex;
+    justify-content: center;
+    font-size: 45px;
+  }
+  
+  .credit-card__info {
+    display: flex;
+    justify-content: space-between;
+  
+    font-size: 25px;
+  }
+  
+  .credit-card__info_label {
+    font-size: 14px;
+  }
+  
+  .credit-card__info_expiry {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .form--wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  input, select, button {
+    padding:10px;
+    margin:10px 0;
+      border-radius: 10px;
+      box-shadow:0 0 25px 10px rgba(0,0,0,0.06);
+      border: 2px solid rgb(224, 224, 224);
+      border-bottom:1px solid #eee;
+
+  }
+
+  select {
+      cursor: pointer;
+  }
+
+  button {
+      margin-bottom: 20%;
+  }
+
+  button:hover {
+      background-color: rgb(184, 181, 181);
+      cursor: pointer;
+  }

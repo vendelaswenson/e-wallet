@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import { fetchRandomUser } from './redux/cardSlice'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+
+import AddCard from './pages/AddCard'
+import Cards from './pages/Cards'
+import MainHeader from './components/MainHeader'
+import NotFound from './pages/NotFound'
 
 function App() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchRandomUser())
+  }, [dispatch])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MainHeader />
+      <main>
+        <Routes>
+          <Route path="/" element={<Cards />}></Route>
+          <Route path="/addcard" element={<AddCard />}></Route>
+          <Route path="/cards" element={<Cards />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
