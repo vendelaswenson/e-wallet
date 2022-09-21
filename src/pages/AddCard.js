@@ -4,7 +4,6 @@ const AddCard = () => {
   return (
     <>
       <h1>Lägg till ett nytt bankkort</h1>
-
       <Card />
     </>
   )

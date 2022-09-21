@@ -24,7 +24,6 @@ const initialState = {
       cardStateActive: true,
     },
   ],
-  activecard: [],
 }
 
 const cardSlice = createSlice({
@@ -52,8 +51,6 @@ const cardSlice = createSlice({
       })
       newArray[action.payload].cardStateActive = true
       state.cardInformation = newArray
-
-      state.activecard = newArray[action.payload]
     },
   },
   extraReducers: {

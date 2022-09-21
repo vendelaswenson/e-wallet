@@ -4,8 +4,7 @@ import './Cards.css'
 
 const Ewallet = () => {
   const creditCard = useSelector((state) => state.cardInfo.cardInformation)
-  const activeCard = useSelector((state) => state.cardInfo.cardInformation)
-  console.log(activeCard)
+
   const defaultCardName = useSelector(
     (state) => state.cardInfo.cardInformation[0].cardName,
   )
@@ -31,7 +30,7 @@ const Ewallet = () => {
   return (
     <div className="cards--wrapper">
       <h1>E-wallet</h1>
-      <ul>
+      <ul className="li-wrapper">
         {creditCard.map((credit, index) => {
           return (
             <li
@@ -41,7 +40,9 @@ const Ewallet = () => {
               }
             >
               <div
-                className="credit-card "
+                className={
+                  credit.cardStateActive ? 'credit-card-active' : 'credit-card'
+                }
                 onClick={() => {
                   toggleActiveHandler(index)
                 }}

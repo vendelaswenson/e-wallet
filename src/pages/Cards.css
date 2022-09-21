@@ -1,15 +1,42 @@
 * {
     list-style: none;
   }
+
+  .li-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .credit-card-active{
+    margin-top: 72px;
+    height: 260px;
+    border: 0;
+    border-radius: 7px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 430px;
+    padding: 25px;
+    border-radius: 14px;
+    color: white;
+    background-image: linear-gradient(25deg, #1c2e1d, #42a758);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
   
   .active {
-    border: 8px solid rgb(29, 163, 29);
-    width: 110%;
+    height: 450px;
+    order: 1;
+
   }
+
   
   .inactive {
     border: none;
-    border: 3px solid black;
+    order: 2;
+    margin-bottom: -350px;
   }
 
   .cards--wrapper {
@@ -17,6 +44,12 @@
       align-items: center;
       flex-direction: column;
 
+  }
+
+  .delBtn{
+      width: 22%;
+      margin-top: -3px;
+      height: 15%;
   }
 
 

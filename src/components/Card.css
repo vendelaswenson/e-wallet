@@ -69,6 +69,10 @@
       margin-bottom: 20%;
   }
 
+  .addBtn {
+      margin-bottom: -200px;
+  }
+
   button:hover {
       background-color: rgb(184, 181, 181);
       cursor: pointer;

@@ -14,6 +14,7 @@ const cardData = {
 }
 
 const Card = () => {
+  const creditCard = useSelector((state) => state.cardInfo)
   const cardDefaultName = useSelector(
     (state) => state.cardInfo.cardInformation[0].cardName,
   )
@@ -31,8 +32,12 @@ const Card = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(addNewCard(values))
-    setValues(cardData)
+    if (creditCard.cardInformation.length < 4) {
+      dispatch(addNewCard(values))
+      setValues(cardData)
+    } else {
+      alert('Du kan inte ha fler än 4 kort!')
+    }
   }
 
   return (
@@ -74,7 +79,7 @@ const Card = () => {
           />
 
           <input
-            type="number"
+            type="text"
             minLength="16"
             maxLength="16"
             placeholder="Nummer"
@@ -87,7 +92,7 @@ const Card = () => {
             <br></br>
 
             <input
-              type="number"
+              type="text"
               minLength="2"
               maxLength="2"
               placeholder="Månad"
@@ -96,7 +101,7 @@ const Card = () => {
             />
 
             <input
-              type="number"
+              type="text"
               minLength="2"
               maxLength="2"
               placeholder="År"
@@ -106,7 +111,7 @@ const Card = () => {
           </div>
 
           <input
-            type="number"
+            type="text"
             minLength="3"
             maxLength="3"
             placeholder="CCV"
@@ -115,6 +120,10 @@ const Card = () => {
           />
 
           <select name="bankName" onChange={cardInfoHandler}>
+            <option disabled selected value>
+              {' '}
+              Välj en bank{' '}
+            </option>
             <option value="Mastercard"> MasterCard </option>
             <option value="Visa"> Visa </option>
             <option value="American Express"> American Express </option>
