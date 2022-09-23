@@ -2,13 +2,13 @@
     list-style: none;
   }
 
-  .li-wrapper{
+  .li--wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .credit-card-active{
+  .credit--card__active{
     margin-top: 72px;
     height: 260px;
     border: 0;
@@ -46,13 +46,13 @@
 
   }
 
-  .card-li{
+  .card--li{
       position: relative;
       height: 500px;
   }
   .delBtn{
       width: 22%;
-      margin-top: -20%;
+      margin-top: -0.1%;
       margin-left: -120px;
       position: absolute;
       top: 180px;
@@ -76,13 +76,14 @@
   }
 
   .delBtn:hover {
-    background-image: linear-gradient(to bottom, rgb(158, 152, 152), #cfcecb);
-      color: white;
+    background-image: linear-gradient(to bottom, rgb(202, 197, 197), #e9e8e7);
   }
   
   
   h4 {
-      margin-bottom: 15px;
+      margin-bottom: -5px;
+      font-weight: 1;
+      
   }
 
   .active--headline {
@@ -92,7 +93,7 @@
   }
   
   .header--ewallet {
-    color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; 
+    color: #484e48;; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; 
   }
 
 

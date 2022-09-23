@@ -11,7 +11,7 @@ const cardData = {
   cardYear: '',
   ccv: '',
   bankName: '',
-  cardStateActive: null,
+  cardStateActive: false,
 }
 
 const Card = () => {
@@ -44,98 +44,101 @@ const Card = () => {
   }
 
   return (
-    <div className="form--wrapper">
-      <div className="credit-card">
-        <div className="credit-card__logo">{values.bankName}</div>
+    <>
+      <div className="headline-wrapper">
+        <h4 className="active--headline">Nytt kort</h4>
+      </div>
+      <div className="form--wrapper">
+        <div className="credit--card">
+          <div>{values.bankName}</div>
 
-        <div className="credit-card__number">{values.cardNumber}</div>
-        <span className="credit-ccv">{values.ccv}</span>
-        <div className="credit-card__info">
-          <div className="credit-card__info_name">
-            <div className="credit-card__info_label">
-              KORTINNEHAVARENS FÖR OCH EFTERNAMN
+          <div className="card--number">{values.cardNumber}</div>
+          <span className="card--ccv">{values.ccv}</span>
+          <div className="card--info">
+            <div className="info--name">
+              <div className="card--label">KORTINNEHAVARENS NAMN</div>
+              <div value={cardDefaultName.toLocaleUpperCase()}>
+                {cardDefaultName.toLocaleUpperCase()}
+              </div>
             </div>
-            <div value={cardDefaultName.toLocaleUpperCase()}>
-              {cardDefaultName.toLocaleUpperCase()}
-            </div>
-          </div>
 
-          <div className="credit-card__info_expiry">
-            <div className="credit-card__info_label">GILTIGT TILL</div>
-            <div>
-              {' '}
-              {values.cardMonth} / {values.cardYear}
+            <div className="card--expiry">
+              <div className="info--label">GILTIGT TILL</div>
+              <div>
+                {' '}
+                {values.cardMonth} / {values.cardYear}
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div>
-        <form className="cardForm" onSubmit={handleSubmit}>
-          <input
-            readOnly
-            type="text"
-            name="cardName"
-            placeholder={cardDefaultName}
-            value={values.cardName || ''}
-            onChange={cardInfoHandler}
-          />
-
-          <input
-            type="text"
-            minLength="16"
-            maxLength="16"
-            placeholder="Nummer"
-            onChange={cardInfoHandler}
-            name="cardNumber"
-          />
-
-          <div>
-            <label> UTGÅNGSDATUM</label>
-            <br></br>
-
+        <div>
+          <form className="cardForm" onSubmit={handleSubmit}>
             <input
+              readOnly
               type="text"
-              minLength="2"
-              maxLength="2"
-              placeholder="Månad"
-              name="cardMonth"
+              name="cardName"
+              placeholder={cardDefaultName}
+              value={values.cardName || ''}
               onChange={cardInfoHandler}
             />
 
             <input
               type="text"
-              minLength="2"
-              maxLength="2"
-              placeholder="År"
-              name="cardYear"
+              minLength="16"
+              maxLength="16"
+              placeholder="Nummer"
+              onChange={cardInfoHandler}
+              name="cardNumber"
+            />
+
+            <div>
+              <label> UTGÅNGSDATUM</label>
+              <br></br>
+
+              <input
+                type="text"
+                minLength="2"
+                maxLength="2"
+                placeholder="Månad"
+                name="cardMonth"
+                onChange={cardInfoHandler}
+              />
+
+              <input
+                type="text"
+                minLength="2"
+                maxLength="2"
+                placeholder="År"
+                name="cardYear"
+                onChange={cardInfoHandler}
+              />
+            </div>
+
+            <input
+              type="text"
+              minLength="3"
+              maxLength="3"
+              placeholder="CCV"
+              name="ccv"
               onChange={cardInfoHandler}
             />
-          </div>
 
-          <input
-            type="text"
-            minLength="3"
-            maxLength="3"
-            placeholder="CCV"
-            name="ccv"
-            onChange={cardInfoHandler}
-          />
+            <select name="bankName" onChange={cardInfoHandler}>
+              <option disabled selected value>
+                {' '}
+                Välj en bank{' '}
+              </option>
+              <option value="Mastercard"> MasterCard </option>
+              <option value="Visa"> Visa </option>
+              <option value="American Express"> American Express </option>
+            </select>
 
-          <select name="bankName" onChange={cardInfoHandler}>
-            <option disabled selected value>
-              {' '}
-              Välj en bank{' '}
-            </option>
-            <option value="Mastercard"> MasterCard </option>
-            <option value="Visa"> Visa </option>
-            <option value="American Express"> American Express </option>
-          </select>
-
-          <button> Lägg till </button>
-        </form>
+            <button> Lägg till </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
