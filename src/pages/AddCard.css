@@ -1,0 +1,10 @@
+.h1--wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Trocchi', serif;
+    color: #7c795d;
+    margin-top: 100px;
+}

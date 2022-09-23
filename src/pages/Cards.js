@@ -16,8 +16,9 @@ const Ewallet = () => {
   }
 
   const deleteHandler = (index) => {
+    console.log(creditCard[index], creditCard[index].cardStateActive)
     if (creditCard.length > 1) {
-      if (creditCard[index].cardStateActive === false) {
+      if (creditCard[index].cardStateActive === null) {
         dispatch(deleteCard(index))
       } else {
         alert('Du kan inte ta bort ett aktivt kort!')
@@ -29,7 +30,8 @@ const Ewallet = () => {
 
   return (
     <div className="cards--wrapper">
-      <h1>E-wallet</h1>
+      <h1 className="header--ewallet">E-wallet</h1>
+      <h4 className="active--headline">Aktivt kort</h4>
       <ul className="li-wrapper">
         {creditCard.map((credit, index) => {
           return (
@@ -70,7 +72,7 @@ const Ewallet = () => {
                   </div>
                 </div>
               </div>
-              <button onClick={() => deleteHandler(index)}>
+              <button className="delBtn" onClick={() => deleteHandler(index)}>
                 {' '}
                 Ta bort kort
               </button>

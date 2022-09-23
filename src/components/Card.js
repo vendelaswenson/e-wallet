@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { addNewCard } from '../redux/cardSlice'
 import './Card.css'
 
@@ -14,6 +15,7 @@ const cardData = {
 }
 
 const Card = () => {
+  const navigate = useNavigate()
   const creditCard = useSelector((state) => state.cardInfo)
   const cardDefaultName = useSelector(
     (state) => state.cardInfo.cardInformation[0].cardName,
@@ -38,6 +40,7 @@ const Card = () => {
     } else {
       alert('Du kan inte ha fler än 4 kort!')
     }
+    navigate('/')
   }
 
   return (
